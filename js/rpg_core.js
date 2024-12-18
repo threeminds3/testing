@@ -2116,10 +2116,7 @@ Graphics.isFontLoaded = function(name) {
  * @method playVideo
  * @param {String} src
  */
-Graphics.playVideo = function(src) {
-    this._videoLoader = ResourceHandler.createLoader(null, this._playVideo.bind(this, src), this._onVideoError.bind(this));
-    this._playVideo(src);
-};
+
 
 /**
  * @static
@@ -2127,13 +2124,12 @@ Graphics.playVideo = function(src) {
  * @param {String} src
  * @private
  */
-Graphics._playVideo = function(src) {
+Graphics.playVideo = function(src) {
     this._video.src = src;
     this._video.onloadeddata = this._onVideoLoad.bind(this);
-    this._video.onerror = this._videoLoader;
+    this._video.onerror = this._onVideoError.bind(this);
     this._video.onended = this._onVideoEnd.bind(this);
     this._video.load();
-    this._videoLoading = true;
 };
 
 /**
