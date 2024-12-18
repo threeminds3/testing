@@ -768,7 +768,7 @@ var BD;
                 scopeNotation: {
                     forParty: "Everyone",
                     forTroop: "All Enemies",
-                    forTroopRandom: "敵%1体 ランダム"
+                    forTroopRandom: "%1 Enemies (Random)"
                 },
                 actor: {
                     states: true,
